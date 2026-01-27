@@ -1,0 +1,356 @@
+{
+  "info": {
+    "_postman_id": "b6a3be95-7042-4fde-a67f-3ea23d3c2e8b",
+    "name": "Spring CRUD Application with File Attachment",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "51855174",
+    "_collection_link": "https://go.postman.co/collection/51855174-b6a3be95-7042-4fde-a67f-3ea23d3c2e8b?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Upload File",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "file",
+              "type": "file",
+              "uuid": "21c04499-59ae-44d4-a5a4-1be652057a6d",
+              "src": "AUQV--cTb/Amutech Company Application Form-Single Line Profile.pdf"
+            }
+          ]
+        },
+        "url": {
+          "raw": "https://eacdca46fa8f.ngrok-free.app/employee/upload-file/2",
+          "protocol": "https",
+          "host": [
+            "eacdca46fa8f",
+            "ngrok-free",
+            "app"
+          ],
+          "path": [
+            "employee",
+            "upload-file",
+            "2"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Upload Json with File",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "file",
+              "type": "file",
+              "uuid": "21c04499-59ae-44d4-a5a4-1be652057a6d",
+              "src": "AUQV--cTb/Amutech Company Application Form-Single Line Profile.pdf"
+            }
+          ]
+        },
+        "url": {
+          "raw": "https://eacdca46fa8f.ngrok-free.app/employee/upload-file/2",
+          "protocol": "https",
+          "host": [
+            "eacdca46fa8f",
+            "ngrok-free",
+            "app"
+          ],
+          "path": [
+            "employee",
+            "upload-file",
+            "2"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Download File",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://eacdca46fa8f.ngrok-free.app/employee/download-file/2",
+          "protocol": "https",
+          "host": [
+            "eacdca46fa8f",
+            "ngrok-free",
+            "app"
+          ],
+          "path": [
+            "employee",
+            "download-file",
+            "2"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Upload File with File Size and File Extensions",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "file",
+              "type": "file",
+              "uuid": "21c04499-59ae-44d4-a5a4-1be652057a6d",
+              "src": "bephIxO3e/5 D solutions Company Application Form-Single Line Profile.pdf"
+            }
+          ]
+        },
+        "url": {
+          "raw": "https://eacdca46fa8f.ngrok-free.app/employee/upload-file/file-size/file-extension/5",
+          "protocol": "https",
+          "host": [
+            "eacdca46fa8f",
+            "ngrok-free",
+            "app"
+          ],
+          "path": [
+            "employee",
+            "upload-file",
+            "file-size",
+            "file-extension",
+            "5"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Upload File with File Size",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "file",
+              "type": "file",
+              "uuid": "21c04499-59ae-44d4-a5a4-1be652057a6d",
+              "src": "Vco7RLC1p/Install Maven and set environment path_HD.mp4"
+            }
+          ]
+        },
+        "url": {
+          "raw": "https://eacdca46fa8f.ngrok-free.app/employee/upload-file/file-size/2",
+          "protocol": "https",
+          "host": [
+            "eacdca46fa8f",
+            "ngrok-free",
+            "app"
+          ],
+          "path": [
+            "employee",
+            "upload-file",
+            "file-size",
+            "2"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get All Employees",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://eacdca46fa8f.ngrok-free.app/employee",
+          "protocol": "https",
+          "host": [
+            "eacdca46fa8f",
+            "ngrok-free",
+            "app"
+          ],
+          "path": [
+            "employee"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Employee by ID",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://eacdca46fa8f.ngrok-free.app/employee/2",
+          "protocol": "https",
+          "host": [
+            "eacdca46fa8f",
+            "ngrok-free",
+            "app"
+          ],
+          "path": [
+            "employee",
+            "2"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Delete Employee by ID",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "https://eacdca46fa8f.ngrok-free.app/employee/5",
+          "protocol": "https",
+          "host": [
+            "eacdca46fa8f",
+            "ngrok-free",
+            "app"
+          ],
+          "path": [
+            "employee",
+            "5"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Update Employee by ID",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"empName\": \"Ashutosh S. Kulkarni\",\r\n    \"empEmail\": \"ashutosh.kulkarni777@company.com\",\r\n    \"contactNo\": \"9988776654\",\r\n    \"address\": \"Pune, Maharashtra\",\r\n    \"salary\": 89000.75,\r\n    \"birthDate\": \"05-Oct-1992\",\r\n    \"bloodGroup\": \"AB_POSITIVE\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://eacdca46fa8f.ngrok-free.app/employee/2",
+          "protocol": "https",
+          "host": [
+            "eacdca46fa8f",
+            "ngrok-free",
+            "app"
+          ],
+          "path": [
+            "employee",
+            "2"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Partial Update Employee by ID",
+      "request": {
+        "method": "PATCH",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"empName\": \"Ashutosh S. Kulkarni\",\r\n    \"empEmail\": \"ashutosh.kulkarni7879@company.com\",\r\n    \"contactNo\": \"9988776656\",\r\n    \"address\": \"Pune, Maharashtra\",\r\n    \"salary\": 90000.75,\r\n    \"birthDate\": \"05-Oct-1992\",\r\n    \"bloodGroup\": \"B_POSITIVE\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://eacdca46fa8f.ngrok-free.app/employee/2",
+          "protocol": "https",
+          "host": [
+            "eacdca46fa8f",
+            "ngrok-free",
+            "app"
+          ],
+          "path": [
+            "employee",
+            "2"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create Employee",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"empName\": \"Rohit Patel\",\r\n    \"empEmail\": \"rohit.patel@company.com\",\r\n    \"contactNo\": \"9345679999\",\r\n    \"address\": \"Lucknow, India\",\r\n    \"salary\": 120000,\r\n    \"birthDate\": \"01-Apr-1990\",\r\n    \"bloodGroup\": \"AB_POSITIVE\"\r\n  }",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://eacdca46fa8f.ngrok-free.app/employee",
+          "protocol": "https",
+          "host": [
+            "eacdca46fa8f",
+            "ngrok-free",
+            "app"
+          ],
+          "path": [
+            "employee"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Download File by ID with Specific File Location",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "fileLocation",
+              "type": "text",
+              "uuid": "0916781a-ffd0-4078-a99f-669d39950127",
+              "value": "D:/Spring Tool Suite/Final_Projects/Spring Boot CRUD Application with File Attachment\\employee/src/main/java/com/employee/download_file"
+            }
+          ]
+        },
+        "url": {
+          "raw": "https://eacdca46fa8f.ngrok-free.app/employee/download-file/file-location/4",
+          "protocol": "https",
+          "host": [
+            "eacdca46fa8f",
+            "ngrok-free",
+            "app"
+          ],
+          "path": [
+            "employee",
+            "download-file",
+            "file-location",
+            "4"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
