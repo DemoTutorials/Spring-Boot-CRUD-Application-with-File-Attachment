@@ -81,7 +81,7 @@ public class EmployeeServiceImpl implements EmployeeService {
         employeeRepository.save(employee);
     }
 
-    @Transactional(readOnly = true)
+    @Transactional(readOnly = false)
     @Override
     public EmployeeResponseDTO patchUpdate(Long id, Map<String, Object> updates) {
         Employee employee = employeeRepository.findByIdAndIsDeletedFalse(id).orElseThrow(() -> new EmployeeNotFoundException(EMPLOYEE_NOT_FOUND_MSG + id));
