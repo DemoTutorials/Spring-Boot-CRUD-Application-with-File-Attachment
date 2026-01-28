@@ -77,8 +77,8 @@ public class EmployeeController {
 
     // // Upload-File By ID If it is Exists with Specific File-Size
     @PostMapping("/upload-file/file-size/{id}")
-    public ResponseEntity<?> uploadFileWithFileSize(@PathVariable Long id, @RequestParam("file") MultipartFile file){
-        long maxFileSize = 1*1024*1024;
+    public ResponseEntity<Object> uploadFileWithFileSize(@PathVariable Long id, @RequestParam("file") MultipartFile file){
+        long maxFileSize = 1L*1024*1024;
         if(file.getSize()>maxFileSize){
             return ResponseEntity.status(HttpStatus.PAYLOAD_TOO_LARGE).body("File Size is exceed than 1MB... Please choose smaller size file");
         }
@@ -87,8 +87,8 @@ public class EmployeeController {
 
     // // Upload-File By ID If it is Exists with Specific File-Size And File-Extension
     @PostMapping("/upload-file/file-size/file-extension/{id}")
-    public ResponseEntity<?> uploadFileWithFileSizeAndFileExtension(@PathVariable Long id, @RequestParam("file") MultipartFile file){
-        long maxFileSize = 1*1024*1024;
+    public ResponseEntity<Object> uploadFileWithFileSizeAndFileExtension(@PathVariable Long id, @RequestParam("file") MultipartFile file){
+        long maxFileSize = 1L*1024*1024;
         if(file.getSize()>maxFileSize){
             return ResponseEntity.status(HttpStatus.PAYLOAD_TOO_LARGE).body("File Size is exceed than 1MB... Please choose smaller size file");
         }
@@ -101,8 +101,8 @@ public class EmployeeController {
 
     private boolean isValidExtension(String fileName) {
         String lowerCase = fileName.toLowerCase();
-        return lowerCase.endsWith(".pdf") |
-                lowerCase.endsWith(".jpg") |
+        return lowerCase.endsWith(".pdf") ||
+                lowerCase.endsWith(".jpg") ||
                 lowerCase.endsWith(".jpeg");
     }
 
@@ -114,14 +114,14 @@ public class EmployeeController {
         try {
              employeeRequestDTO = objectMapper.readValue(employeeJson, EmployeeRequestDTO.class);
         } catch (JsonProcessingException e) {
-            throw new RuntimeException(e);
+            throw new IllegalArgumentException("Invalid JSON format for employee data",e);
         }
         return ResponseEntity.status(HttpStatus.OK).body(employeeService.uploadJsonWithFile(employeeRequestDTO,file));
     }
 
     // Download-File By ID If it is Exists
     @GetMapping("/download-file/{id}")
-    public ResponseEntity<?> downloadFile(@PathVariable Long id){
+    public ResponseEntity<byte[]> downloadFile(@PathVariable Long id){
         FileDto fileDto=employeeService.downloadFile(id);
         return ResponseEntity
                 .ok().
@@ -132,7 +132,7 @@ public class EmployeeController {
 
     // Download-File By ID If it is Exists and Download into the Specific Directory Location
     @GetMapping("/download-file/file-location/{id}")
-    public ResponseEntity<?> downloadFileSpecificLocation(@PathVariable Long id, @RequestParam("fileLocation") String fileLocation){
+    public ResponseEntity<String> downloadFileSpecificLocation(@PathVariable Long id, @RequestParam("fileLocation") String fileLocation){
         FileDto fileDto=employeeService.downloadFile(id);
         try {
             Path directoryPath = Paths.get(fileLocation);

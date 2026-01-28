@@ -107,7 +107,7 @@ public class EmployeeServiceImpl implements EmployeeService {
             employee.setFileType(file.getContentType());
             employee.setFileData(file.getBytes());
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            throw new IllegalStateException("Failed to read file content", e);
         }
         Employee updateEmployee = employeeRepository.save(employee);
         return new FileDto(updateEmployee.getFileName(),updateEmployee.getFileType(),updateEmployee.getFileData());
@@ -117,12 +117,8 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     public FileDto downloadFile(Long id) {
         Employee employee = employeeRepository.findByIdAndIsDeletedFalse(id).orElseThrow(() -> new EmployeeNotFoundException(EMPLOYEE_NOT_FOUND_MSG + id));
-        if(employee.getFileData()==null){
-            try {
-                throw new FileNotFoundException("Failed to Download File...");
-            } catch (FileNotFoundException e) {
-                throw new RuntimeException(e);
-            }
+        if (employee.getFileData() == null) {
+            throw new IllegalStateException("No file attached to this employee");
         }
         return new FileDto(employee.getFileName(), employee.getFileType(), employee.getFileData());
     }
@@ -137,13 +133,12 @@ public class EmployeeServiceImpl implements EmployeeService {
                 employee.setFileData(file.getBytes());
             }
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            throw new IllegalStateException("Failed to process uploaded file", e);
         }
         Employee updatedEmployee = employeeRepository.save(employee);
         return modelMapper.map(updatedEmployee, EmployeeRequestDTO.class);
     }
 
-    @Transactional(readOnly = false)
     private void updateField(Employee employee, String field, Object value, DateTimeFormatter fmt) {
         switch (field) {
             case "empName" -> employee.setEmpName((String) value);
